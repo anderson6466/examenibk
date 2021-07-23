@@ -1,0 +1,35 @@
+
+<div>
+<h1>Aqui puede realizar sus operaciones</h1>
+<hr>
+<p Style="display:none"   >  {{ mon[1].cod }}    </p>
+<div class="example-container">
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>Monto</mat-label>
+      <input matInput  [(ngModel)]="opvalor"       onkeypress="return event.charCode >= 48 && event.charCode <= 57"    #input maxlength="10" placeholder="Ingrese Monto">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+     
+           <select   [(ngModel)]="opde"        style="margin :9px;"  >  
+            <option     selected disabled  >   Origen  </option>
+            <option  [value]=item.cod      *ngFor="let item of mon " > {{ item.nombre  }}</option>
+             </select>
+
+             <select  [(ngModel)]="opto"     style="margin :9px;"  >  
+            <option  selected disabled  >   Destino  </option>
+            <option  [value]=item.cod      *ngFor="let item of mon " > {{ item.nombre  }}</option>
+             </select>
+
+           
+      <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+     
+    </mat-form-field>
+
+    <button mat-button   (click)="operacionestipocambio()"   style="margin-top:15px;"   color="green">Ejecutar Operacion</button>
+
+ <br>
+  <H1   Style="color:green;"> RESULTADO: {{resultado}}  </H1>   
+  </div>
+</div>

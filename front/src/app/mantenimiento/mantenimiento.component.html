@@ -1,0 +1,62 @@
+<p>Agregar Moneda</p>
+<hr>
+
+<div class="example-container">
+
+   
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>cod</mat-label>
+      <input matInput  [(ngModel)]="moneda"     #input maxlength="10" placeholder="Ejemplo:Nuevo SOL">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    </mat-form-field>
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+        <mat-label>moneda</mat-label>
+        <input matInput   [(ngModel)]="cod"    #input maxlength="10" placeholder="Ejemplo:PEN">
+        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+      </mat-form-field>
+
+
+
+    <mat-form-field appearance="fill">
+     
+            
+        <button mat-button  (click)="Guardarmoenda()" style="margin-top:15px;"   color="green">+ Moneda</button>
+ 
+     
+    </mat-form-field>
+
+
+
+ <br>
+ <p>Agregar Tipo de Cambio</p>
+ <hr>
+ <p Style="display:none"   >  {{ mon[1].cod }}    </p>
+ <mat-form-field appearance="fill">
+     
+   
+    <select    [(ngModel)]="ibkde"      style="margin :9px;"  >  
+     <option  selected disabled  >   De  </option>
+     <option  [value]=item.cod      *ngFor="let item of mon " > {{ item.nombre  }}</option>
+    </select>
+
+      <select    [(ngModel)]="ibkto"         style="margin :9px;"  >  
+     <option  selected disabled  >   A  </option>
+     <option  [value]=item.cod      *ngFor="let item of mon " > {{ item.nombre  }}</option>
+ 
+      </select>
+     
+      <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+        <mat-label>Monto</mat-label>
+        <input matInput  [(ngModel)]= "valor"         #input maxlength="10" placeholder="Ingrese Monto">
+        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+      
+        <button mat-button   (click)="Guardartipocambio()"   style="margin-top:15px;"   color="green">+ Guardar </button>
+    </mat-form-field>
+<mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+
+</mat-form-field>
+
+
+
+
+  </div>
